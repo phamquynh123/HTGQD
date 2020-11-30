@@ -7,7 +7,7 @@ class DB{
         $servername="localhost";
         $username="root";
         $password="";
-        $dbname="HTGQD";
+        $dbname="htgqd";
         $this->conn=new mysqli($servername,$username,$password,$dbname);
         $this->conn->set_charset("utf8");
         if ($this->conn->connect_error) {

@@ -25,7 +25,7 @@ class HomeController extends Controller{
     {
         $data = $_POST;
         $listPulse = [];
-        $jsonListPulse = '';
+        // $jsonListPulse = '';
         $rule = $this->rule->All();
         foreach ($data as $key => $value) {
             array_push($listPulse, $key);

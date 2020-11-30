@@ -74,7 +74,6 @@ class Fuzzy {
     public function multifuzzy($symptom, $listPulse, $rule, $data)
     {
     	$wsymptompulse = explode(",", substr(substr($rule['wsymptompulse'], 1), 0, -1));
-    	
     	for ($j=0; $j < count($listPulse); $j++) {
     		$rule['wsymptompulse'] = $wsymptompulse[$j];
     		$symptom = $this->singlefuzzy($symptom, $listPulse[$j], $rule, $data);
@@ -85,12 +84,12 @@ class Fuzzy {
 
     public function singlefuzzy($symptom, $pulse, $rule, $data)
     {
-    	$chiso = min(min((int)$rule['wsymptompulse'], $data[$pulse]), $rule['wpulsesymptom']);
+    	$chiso = min(min($rule['wsymptompulse'], $data[$pulse]), $rule['wpulsesymptom']);
     	if ($symptom['weight'] < $chiso) {
     		$symptom['weight'] = $chiso;
     		$symptom['symptomId'] = $rule['symptomId'];
     	}
-
+    	
     	return $symptom;
     }
 }

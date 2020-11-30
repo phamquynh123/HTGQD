@@ -3,7 +3,7 @@
 include_once('Model/Model.php');
 
 class Rule extends Model{
-	var $table_name='Rule';
+	var $table_name='rule';
 	var $primery_key='id';
 	var $primery_pulseIds='pulseIds';
 	var $primery_symptomId='symptomId';
