@@ -65,6 +65,47 @@ class Model
 
 		return $result->fetch_assoc();
 	}
+
+	public function find($column, $value) {
+		$query="SELECT *
+  		FROM " . $this->table_name . "
+ 		WHERE " . $column . " = " . $value ;
+		$result= $this->conn-> query($query);
+		$data=array();
+
+		while ($row= $result->fetch_assoc() ){
+			$data[]=$row;
+		}
+		return $data;
+	}
+
+
+	function insert($data){
+		$field="";
+		$values="";
+		foreach ($data as $key => $value) {
+			$field .=$key. ',' ;
+			$values .='"'.$value. '",' ;	
+		}
+		$field=trim($field ,',');
+		$values=trim($values ,',');
+		$query='INSERT INTO '. $this->table_name.'('.$field.')' . ' VALUES ( '.$values .' )';
+		// echo $query; die;
+		$result = $this->conn->query($query);
+		return $result;
+	}
+
+	public function update($data){
+		$abc="";
+		foreach ($data as $key => $value) {
+			$abc .= $key." = '".$value ." ' ,";
+		}
+		$abc=trim($abc, ' , ');
+		$query =" UPDATE  $this->table_name SET $abc WHERE id = ".$data['id'] ;
+		$result = $this->conn->query($query);
+		return $result;
+	}
+
 }
 
 

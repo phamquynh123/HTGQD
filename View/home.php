@@ -27,7 +27,32 @@
 </head>
 <body>
     <div class="container">
-        <h1>Chẩn đoán bệnh</h1>
+        <form action="" method="POST" role="form">
+            <legend>Thông tin bệnh nhân</legend>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for=""><b>Tên bệnh nhân</b></label>
+                        <p><?php echo $result['name'] ?></p>
+                    </div>
+                    <div class="form-group">
+                        <label for=""><b>Địa chỉ</b></label>
+                        <p><?php echo $result['address'] ?></p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for=""><b>Số điện thoại</b></label>
+                        <p><?php echo $result['phone'] ?></p>
+                    </div>
+                    <div class="form-group">
+                        <label for=""><b>CMND</b></label>
+                        <p><?php echo $result['cmnd'] ?></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <h1 class="text-center">Chẩn đoán bệnh</h1>
         <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
             <?php if(isset($pulse)) { foreach($pulse as $value) {?>
                 <option value="<?=$value['id']?>"><?=$value['name']?></option>

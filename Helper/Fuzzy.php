@@ -89,7 +89,10 @@ class Fuzzy {
     		$symptom['weight'] = $chiso;
     		$symptom['symptomId'] = $rule['symptomId'];
     	}
-    	
+
     	return $symptom;
     }
 }
+
+
+// Theem id benehj nhan
